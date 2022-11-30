@@ -89,4 +89,8 @@ a:hover {
 .teams__input-wrapper input {
   height: 50px;
   font-size: 23px;
+}
+.teams__item {
+  font-size: 16px;
+  line-height: 24px;
 }/*# sourceMappingURL=style.css.map */

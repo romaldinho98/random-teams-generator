@@ -13,14 +13,16 @@ generateButton.addEventListener('click', () => {
   showTeamsAndMembers(countTeamsValue, countMembersValue);
 });
 
+function deleteElements(parent) {
+  let children = parent.childNodes;
+}
+
 function showTeamsAndMembers(teams, members) {
   let membersArray = [];
 
   for (let i = 1; i <= members; i += 1) {
     membersArray.push(i);
   }
-
-  console.log(membersArray);
 
   function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -34,10 +36,9 @@ function showTeamsAndMembers(teams, members) {
 
   shuffle(membersArray);
 
-  console.log(`Random array: ${membersArray}`);
-
   function createElem(elemText, elemsList) {
     let elem = document.createElement('li');
+    elem.classList.add("teams__item");
     elem.textContent = elemText;
     elemsList.appendChild(elem);
   }
