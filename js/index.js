@@ -10,11 +10,17 @@ generateButton.addEventListener('click', () => {
   countMembersValue = +document.querySelector("#count-members").value;
 
   membersArray = [];
+  deleteElements(teamsList);
   showTeamsAndMembers(countTeamsValue, countMembersValue);
 });
 
 function deleteElements(parent) {
-  let children = parent.childNodes;
+  let childrens = parent.childNodes;
+  childrens.forEach(item => {
+    item.remove();
+    
+  });
+  console.log(childrens);
 }
 
 function showTeamsAndMembers(teams, members) {
