@@ -1,33 +1,28 @@
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-  outline: none;
+@import "reset.scss";
+
+$body: #343A40;
+$text: #FFC107;
+$btn: #7952B3;
+$light: #E1E8EB;
+
+body {
+  background: $body;
+  color: $text;
+  padding-top: 50px;
+  font-family: 'Nunito', sans-serif;
 }
-html { height: 101%; } /* always display scrollbars */
-body { font-size: 62.5%; line-height: 1; font-family: Arial, Tahoma, Verdana, sans-serif; }
-
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
-ol, ul { list-style: none; }
-
-blockquote, q { quotes: none; }
-blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
-strong { font-weight: bold; } 
-
-input { outline: none; }
-
-table { border-collapse: collapse; border-spacing: 0; }
-img { border: 0; max-width: 100%; }
-
-a { text-decoration: none; }
-a:hover { text-decoration: underline; }
 
 .teams {
+  h1 {
+    font-size: 50px;
+    margin-bottom: 30px;
+  }
+  h1, h3 {
+    text-align: center;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+  }
   &__container {
-    padding-top: 40px;
     margin: 0 auto;
     max-width: 1020px;
   }
@@ -35,23 +30,56 @@ a:hover { text-decoration: underline; }
     display: flex;
     flex-direction: column;
     align-items: center;
-    button {
-      height: 50px;
-    }
   }
   &__input-wrapper {
-    height: 80px;
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
     label {
-      font-size: 18px;
+      font-size: 25px;
+      padding-bottom: 5px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
     }
     input {
-      height: 50px;
+      box-sizing: border-box;
+      padding: 3px 5px 3px 10px;
+      height: 60px;
       font-size: 23px;
+      color: $body;
+      background-color: $light;
+      outline: none;
+      border-radius: 12px;
+      border: none;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
     }
   }
-  &__item {
-    font-size: 16px;
-    line-height: 24px;
+  &__btn {
+    margin-top: 15px;
+    margin-bottom: 25px;
+    width: 100%;
+    max-width: 200px;
+    border-radius: 12px;
+    height: 60px;
+    outline: none;
+    border: none;
+    background-color: $text;
+    color: $body;
+    font-family: 'Nunito', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
   }
- 
+  &__item {
+    font-size: 28px;
+    line-height: 33px;
+    margin-bottom: 5px;
+  }
+  &__result {
+    font-size: 35px;
+    margin-bottom: 10px;
+  }
 }

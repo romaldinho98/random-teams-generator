@@ -60,8 +60,23 @@ a:hover {
   text-decoration: underline;
 }
 
+body {
+  background: #343A40;
+  color: #FFC107;
+  padding-top: 50px;
+  font-family: "Nunito", sans-serif;
+}
+
+.teams h1 {
+  font-size: 50px;
+  margin-bottom: 30px;
+}
+.teams h1, .teams h3 {
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
 .teams__container {
-  padding-top: 40px;
   margin: 0 auto;
   max-width: 1020px;
 }
@@ -77,20 +92,60 @@ a:hover {
       -ms-flex-align: center;
           align-items: center;
 }
-.teams__content button {
-  height: 50px;
-}
 .teams__input-wrapper {
-  height: 80px;
+  width: 100%;
+  max-width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 10px;
 }
 .teams__input-wrapper label {
-  font-size: 18px;
+  font-size: 25px;
+  padding-bottom: 5px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
 }
 .teams__input-wrapper input {
-  height: 50px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 3px 5px 3px 10px;
+  height: 60px;
   font-size: 23px;
+  color: #343A40;
+  background-color: #E1E8EB;
+  outline: none;
+  border-radius: 12px;
+  border: none;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+}
+.teams__btn {
+  margin-top: 15px;
+  margin-bottom: 25px;
+  width: 100%;
+  max-width: 200px;
+  border-radius: 12px;
+  height: 60px;
+  outline: none;
+  border: none;
+  background-color: #FFC107;
+  color: #343A40;
+  font-family: "Nunito", sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
 }
 .teams__item {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 28px;
+  line-height: 33px;
+  margin-bottom: 5px;
+}
+.teams__result {
+  font-size: 35px;
+  margin-bottom: 10px;
 }/*# sourceMappingURL=style.css.map */

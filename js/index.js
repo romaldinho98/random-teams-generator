@@ -1,27 +1,22 @@
-const generateButton = document.querySelector("#generate-btn");
+const generateButton = document.querySelector("#generate-btn"),
+      teamsList = document.querySelector(".teams__final"),
+      resultTitle = document.querySelector(".teams__result");
 
 let countTeamsValue = 0,
     countMembersValue = 0,
-    membersArray = [],
-    teamsList = document.querySelector(".teams__final");
+    membersArray = [];
+
+resultTitle.style.display = "none";
 
 generateButton.addEventListener('click', () => {
   countTeamsValue = +document.querySelector("#count-teams").value;
   countMembersValue = +document.querySelector("#count-members").value;
 
   membersArray = [];
-  deleteElements(teamsList);
+  teamsList.innerHTML = '';
+  resultTitle.style.display = "block";
   showTeamsAndMembers(countTeamsValue, countMembersValue);
 });
-
-function deleteElements(parent) {
-  let childrens = parent.childNodes;
-  childrens.forEach(item => {
-    item.remove();
-    
-  });
-  console.log(childrens);
-}
 
 function showTeamsAndMembers(teams, members) {
   let membersArray = [];
@@ -29,6 +24,8 @@ function showTeamsAndMembers(teams, members) {
   for (let i = 1; i <= members; i += 1) {
     membersArray.push(i);
   }
+
+  console.log(membersArray);
 
   function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -41,6 +38,8 @@ function showTeamsAndMembers(teams, members) {
   }
 
   shuffle(membersArray);
+  
+  console.log(membersArray);
 
   function createElem(elemText, elemsList) {
     let elem = document.createElement('li');
@@ -51,8 +50,9 @@ function showTeamsAndMembers(teams, members) {
 
   const chunkSize = teams;
 
-  for (let i = 0; i < membersArray.length; i += chunkSize) {
-    let chunk = membersArray.slice(i, i + chunkSize);
+  for (let i = 0; i < membersArray.length; i += (membersArray.length/chunkSize)) {
+    let chunk = (membersArray.slice(i, i + (membersArray.length/chunkSize))).join(', ');
+    console.log(chunk);
     createElem(chunk, teamsList);
   }
 }
