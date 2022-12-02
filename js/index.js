@@ -1,13 +1,31 @@
 const generateButton = document.querySelector("#generate-btn"),
       teamsList = document.querySelector(".teams__final"),
       resultTitle = document.querySelector(".teams__result"),
-      allInputs = document.querySelectorAll("input"),
+      membersListInputs = document.querySelector(".teams__inputs-members"),
       countTeamsInput = document.querySelector("#count-teams"),
-      countMembersInput = document.querySelector("#count-members");
+      countMembersInput = document.querySelector("#count-members"),
+      inputsMembers = document.querySelectorAll(".teams__input-member");
 
 let membersArray = [];
 
 resultTitle.style.display = "none";
+
+countMembersInput.addEventListener('input', () => {
+  membersListInputs.innerHTML = '';
+
+  function createElemMember(elemsList) {
+    let elem = document.createElement('li');
+    let input = document.createElement('input');
+    input.type = "text";
+    input.className = "teams__input-member";
+    elem.appendChild(input);
+    elemsList.appendChild(elem);
+  }
+  
+  for (let i = 1; i <= countMembersInput.value; i += 1) {
+    createElemMember(membersListInputs);
+  }
+});
 
 generateButton.addEventListener('click', () => {
   let countTeamsValue = +countTeamsInput.value;
@@ -24,6 +42,7 @@ generateButton.addEventListener('click', () => {
 
 function showTeamsAndMembers(teams, members) {
   let membersArray = [];
+
 
   for (let i = 1; i <= members; i += 1) {
     membersArray.push(i);
@@ -45,7 +64,7 @@ function showTeamsAndMembers(teams, members) {
   
   console.log(membersArray);
 
-  function createElem(elemText, elemsList) {
+  function createResultElem(elemText, elemsList) {
     let elem = document.createElement('li');
     elem.classList.add("teams__item");
     elem.textContent = elemText;
@@ -57,6 +76,6 @@ function showTeamsAndMembers(teams, members) {
   for (let i = 0; i < membersArray.length; i += (membersArray.length/chunkSize)) {
     let chunk = (membersArray.slice(i, i + (membersArray.length/chunkSize))).join(', ');
     console.log(chunk);
-    createElem(chunk, teamsList);
+    createResultElem(chunk, teamsList);
   }
 }

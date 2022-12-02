@@ -31,9 +31,15 @@ body {
     flex-direction: column;
     align-items: center;
   }
+  &__inputs-wrapper {
+    width: 100%;
+    max-width: 200px;
+    display: flex;
+    justify-content: space-between;
+  }
   &__input-wrapper {
     width: 100%;
-    max-width: 300px;
+    max-width: 90px;
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;

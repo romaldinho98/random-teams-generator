@@ -15,14 +15,19 @@
     <div class="teams__container">
       <h1>Teams generator</h1>
       <div class="teams__content">
-        <div class="teams__input-wrapper">
-          <label for="count-teams">teams</label>
-          <input id="count-teams" type="number">
+        <div class="teams__inputs-wrapper">
+          <div class="teams__input-wrapper">
+            <label for="count-teams">teams</label>
+            <input id="count-teams" type="number">
+          </div>
+          <div class="teams__input-wrapper">
+            <label for="count-members">members</label>
+            <input id="count-members" type="number">
+          </div>
         </div>
-        <div class="teams__input-wrapper">
-          <label for="count-members">members</label>
-          <input id="count-members" type="number">
-        </div>
+        <ul class="teams__inputs-members">
+
+        </ul>
         <button class="teams__btn" id="generate-btn">Generate</button>
         <h3 class="teams__result">result</h3>
         <ul class="teams__final"></ul>
