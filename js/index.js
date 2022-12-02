@@ -1,21 +1,25 @@
 const generateButton = document.querySelector("#generate-btn"),
       teamsList = document.querySelector(".teams__final"),
-      resultTitle = document.querySelector(".teams__result");
+      resultTitle = document.querySelector(".teams__result"),
+      allInputs = document.querySelectorAll("input"),
+      countTeamsInput = document.querySelector("#count-teams"),
+      countMembersInput = document.querySelector("#count-members");
 
-let countTeamsValue = 0,
-    countMembersValue = 0,
-    membersArray = [];
+let membersArray = [];
 
 resultTitle.style.display = "none";
 
 generateButton.addEventListener('click', () => {
-  countTeamsValue = +document.querySelector("#count-teams").value;
-  countMembersValue = +document.querySelector("#count-members").value;
+  let countTeamsValue = +countTeamsInput.value;
+  let countMembersValue = +countMembersInput.value;
 
   membersArray = [];
   teamsList.innerHTML = '';
-  resultTitle.style.display = "block";
-  showTeamsAndMembers(countTeamsValue, countMembersValue);
+
+  if (countTeamsInput.value >= 1 && countMembersInput.value >= 1) {
+    resultTitle.style.display = "block";
+    showTeamsAndMembers(countTeamsValue, countMembersValue);
+  }
 });
 
 function showTeamsAndMembers(teams, members) {
