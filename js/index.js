@@ -3,8 +3,7 @@ const generateButton = document.querySelector("#generate-btn"),
       resultTitle = document.querySelector(".teams__result"),
       membersListInputs = document.querySelector(".teams__inputs-members"),
       countTeamsInput = document.querySelector("#count-teams"),
-      countMembersInput = document.querySelector("#count-members"),
-      inputsMembers = document.querySelectorAll(".teams__input-member");
+      countMembersInput = document.querySelector("#count-members");
 
 let membersArray = [];
 
@@ -22,8 +21,10 @@ countMembersInput.addEventListener('input', () => {
     elemsList.appendChild(elem);
   }
   
-  for (let i = 1; i <= countMembersInput.value; i += 1) {
-    createElemMember(membersListInputs);
+  if (countMembersInput.value < 20) {
+    for (let i = 1; i <= countMembersInput.value; i += 1) {
+      createElemMember(membersListInputs);
+    }
   }
 });
 
@@ -40,13 +41,14 @@ generateButton.addEventListener('click', () => {
   }
 });
 
-function showTeamsAndMembers(teams, members) {
+function showTeamsAndMembers(teams) {
   let membersArray = [];
 
-
-  for (let i = 1; i <= members; i += 1) {
-    membersArray.push(i);
-  }
+  let inputsMembers = document.querySelectorAll(".teams__input-member");
+  
+  inputsMembers.forEach(input => {
+    membersArray.push(input.value);
+  });
 
   console.log(membersArray);
 
@@ -59,7 +61,6 @@ function showTeamsAndMembers(teams, members) {
       [array[i], array[j]] = [array[j], array[i]];
     }
   }
-
   shuffle(membersArray);
   
   console.log(membersArray);
@@ -75,7 +76,7 @@ function showTeamsAndMembers(teams, members) {
 
   for (let i = 0; i < membersArray.length; i += (membersArray.length/chunkSize)) {
     let chunk = (membersArray.slice(i, i + (membersArray.length/chunkSize))).join(', ');
-    console.log(chunk);
+    // console.log(chunk);
     createResultElem(chunk, teamsList);
   }
 }

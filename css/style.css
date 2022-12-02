@@ -71,6 +71,11 @@ body {
   font-size: 50px;
   margin-bottom: 30px;
 }
+@media (max-width: 599px) {
+  .teams h1 {
+    font-size: 45px;
+  }
+}
 .teams h1, .teams h3 {
   text-align: center;
   font-weight: 800;
@@ -79,6 +84,7 @@ body {
 .teams__container {
   margin: 0 auto;
   max-width: 1020px;
+  padding: 0 15px;
 }
 .teams__content {
   display: -webkit-box;
@@ -101,6 +107,7 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin-bottom: 20px;
 }
 .teams__input-wrapper {
   width: 100%;
@@ -112,7 +119,6 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-bottom: 10px;
 }
 .teams__input-wrapper label {
   font-size: 25px;
@@ -124,7 +130,7 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 3px 5px 3px 10px;
-  height: 60px;
+  height: 55px;
   font-size: 23px;
   color: #343A40;
   background-color: #E1E8EB;
@@ -135,6 +141,7 @@ body {
   font-weight: 600;
 }
 .teams__btn {
+  display: block;
   margin-top: 15px;
   margin-bottom: 25px;
   width: 100%;
@@ -159,4 +166,41 @@ body {
 .teams__result {
   font-size: 35px;
   margin-bottom: 10px;
+}
+.teams__inputs-members {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  max-width: 270px;
+}
+.teams__inputs-members li {
+  width: 100%;
+  max-width: 270px;
+  margin-bottom: 10px;
+}
+.teams__inputs-members input {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 3px 5px 3px 10px;
+  height: 40px;
+  font-size: 21px;
+  color: #343A40;
+  background-color: #E1E8EB;
+  outline: none;
+  border-radius: 12px;
+  border: none;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
 }/*# sourceMappingURL=style.css.map */

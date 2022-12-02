@@ -16,6 +16,9 @@ body {
   h1 {
     font-size: 50px;
     margin-bottom: 30px;
+    @media (max-width: 599px) {
+      font-size: 45px;
+    }
   }
   h1, h3 {
     text-align: center;
@@ -25,6 +28,7 @@ body {
   &__container {
     margin: 0 auto;
     max-width: 1020px;
+    padding: 0 15px;
   }
   &__content {
     display: flex;
@@ -36,13 +40,13 @@ body {
     max-width: 200px;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 20px;
   }
   &__input-wrapper {
     width: 100%;
     max-width: 90px;
     display: flex;
     flex-direction: column;
-    margin-bottom: 10px;
     label {
       font-size: 25px;
       padding-bottom: 5px;
@@ -52,7 +56,7 @@ body {
     input {
       box-sizing: border-box;
       padding: 3px 5px 3px 10px;
-      height: 60px;
+      height: 55px;
       font-size: 23px;
       color: $body;
       background-color: $light;
@@ -64,6 +68,7 @@ body {
     }
   }
   &__btn {
+    display: block;
     margin-top: 15px;
     margin-bottom: 25px;
     width: 100%;
@@ -88,5 +93,32 @@ body {
   &__result {
     font-size: 35px;
     margin-bottom: 10px;
+  }
+  &__inputs-members {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 270px;
+    li {
+      width: 100%;
+      max-width: 270px;
+      margin-bottom: 10px;
+    }
+    input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 3px 5px 3px 10px;
+      height: 40px;
+      font-size: 21px;
+      color: $body;
+      background-color: $light;
+      outline: none;
+      border-radius: 12px;
+      border: none;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+    }
   }
 }
