@@ -26,6 +26,9 @@ countMembersInput.addEventListener('input', () => {
       createElemMember(membersListInputs);
     }
   }
+
+  resultTitle.style.display = "none";
+  teamsList.innerHTML = '';
 });
 
 generateButton.addEventListener('click', () => {
@@ -47,7 +50,9 @@ function showTeamsAndMembers(teams) {
   let inputsMembers = document.querySelectorAll(".teams__input-member");
   
   inputsMembers.forEach(input => {
-    membersArray.push(input.value);
+    if (input.value.length > 2) {
+      membersArray.push(input.value);
+    }
   });
 
   console.log(membersArray);
