@@ -203,4 +203,7 @@ body {
   border: none;
   font-family: "Nunito", sans-serif;
   font-weight: 600;
+}
+.teams .error {
+  border: 2px solid #C41E3A;
 }/*# sourceMappingURL=style.css.map */

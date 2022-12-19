@@ -10,16 +10,7 @@ let membersArray = [];
 resultTitle.style.display = "none";
 
 countMembersInput.addEventListener('input', () => {
-  membersListInputs.innerHTML = '';
-
-  function createElemMember(elemsList) {
-    let elem = document.createElement('li');
-    let input = document.createElement('input');
-    input.type = "text";
-    input.className = "teams__input-member";
-    elem.appendChild(input);
-    elemsList.appendChild(elem);
-  }
+  membersListInputs.innerHTML = "";
   
   if (countMembersInput.value < 20) {
     for (let i = 1; i <= countMembersInput.value; i += 1) {
@@ -28,29 +19,51 @@ countMembersInput.addEventListener('input', () => {
   }
 
   resultTitle.style.display = "none";
-  teamsList.innerHTML = '';
+  teamsList.innerHTML = "";
 });
 
-generateButton.addEventListener('click', () => {
+
+generateButton.addEventListener('click', (e) => {
   let countTeamsValue = +countTeamsInput.value;
   let countMembersValue = +countMembersInput.value;
+  let inputsMembers = document.querySelectorAll(".teams__input-member");
+
+  //создание массива инпутов, у которых value пустое
+  let emptyInputs = Array.from(inputsMembers).filter(input => input.value === "");
 
   membersArray = [];
-  teamsList.innerHTML = '';
+  teamsList.innerHTML = "";
 
-  if (countTeamsInput.value >= 1 && countMembersInput.value >= 1) {
+  //проверка на заполнение всех инпутов участников
+
+  inputsMembers.forEach(input => {
+    if (input.value === "") {
+      input.classList.add("error");
+    } else {
+      input.classList.remove("error");
+    }
+  });
+
+  if (emptyInputs.length === 0 && countTeamsValue >= 1 && countMembersValue >= 1) {
+    showTeamsAndMembers(countTeamsValue);
     resultTitle.style.display = "block";
-    showTeamsAndMembers(countTeamsValue, countMembersValue);
   }
 });
 
-function showTeamsAndMembers(teams) {
-  let membersArray = [];
+function createElemMember(elemsList) {
+  let elem = document.createElement('li');
+  let input = document.createElement('input');
+  input.type = "text";
+  input.className = "teams__input-member";
+  elem.appendChild(input);
+  elemsList.appendChild(elem);
+}
 
+function showTeamsAndMembers(teams) {
   let inputsMembers = document.querySelectorAll(".teams__input-member");
   
   inputsMembers.forEach(input => {
-    if (input.value.length > 2) {
+    if (input.value.length > 1) {
       membersArray.push(input.value);
     }
   });
